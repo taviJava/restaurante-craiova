@@ -6,11 +6,11 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
 @Entity
-public class LocalModel {
+public abstract class LocalModel {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private int id;
-   private String name;
+    private String name;
     private String address;
     private String description;
     private String mail;
