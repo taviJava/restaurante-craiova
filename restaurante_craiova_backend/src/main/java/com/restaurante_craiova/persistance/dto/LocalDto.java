@@ -1,14 +1,6 @@
-package com.restaurante_craiova.persistance.model;
+package com.restaurante_craiova.persistance.dto;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-
-@Entity
-public abstract class LocalModel {
-    @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+public abstract class LocalDto {
     private long id;
     private String name;
     private String address;
