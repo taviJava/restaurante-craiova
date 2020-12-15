@@ -12,6 +12,8 @@ public class MessageModel {
     private String name;
     private String textMessage;
 
+
+
     public long getId() {
         return id;
     }
