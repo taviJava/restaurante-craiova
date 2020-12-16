@@ -48,6 +48,9 @@ public class MessageService {
             messageRepository.save(getModel(messageModel, messageDto));
         }
     }
+    public void delete(long id){
+        messageRepository.deleteById(id);
+    }
 
     private MessageModel getModel(MessageModel messageModel, MessageDto messageDto) {
         messageModel.setName(messageDto.getName());

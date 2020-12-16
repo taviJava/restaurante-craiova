@@ -5,6 +5,7 @@ import com.restaurante_craiova.persistance.model.PizzeriaModel;
 import com.restaurante_craiova.repository.PizzeriaRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
@@ -15,40 +16,44 @@ public class PizzeriaService {
     private PizzeriaRepository pizzeriaRepository;
 
 
-    public void save (PizzeriaDto pizzeriaDto){
+    public void save(PizzeriaDto pizzeriaDto) {
         PizzeriaModel pizzeriaModel = new PizzeriaModel();
         pizzeriaRepository.save(getModel(pizzeriaModel, pizzeriaDto));
     }
 
-    public void update(PizzeriaDto pizzeriaDto){
+    public void update(PizzeriaDto pizzeriaDto) {
         Optional<PizzeriaModel> pizzeriaModelOptional = pizzeriaRepository.findById(pizzeriaDto.getId());
-        if (pizzeriaModelOptional.isPresent()){
+        if (pizzeriaModelOptional.isPresent()) {
             PizzeriaModel pizzeriaModel = pizzeriaModelOptional.get();
             pizzeriaRepository.save(getModel(pizzeriaModel, pizzeriaDto));
         }
     }
 
-    public List<PizzeriaDto> getAll(){
+    public List<PizzeriaDto> getAll() {
         List<PizzeriaModel> pizzeriaModels = pizzeriaRepository.findAll();
         List<PizzeriaDto> pizzeriaDtos = new ArrayList<>();
-        for (PizzeriaModel restaurantModel: pizzeriaModels){
+        for (PizzeriaModel restaurantModel : pizzeriaModels) {
             PizzeriaDto pizzeriaDto = new PizzeriaDto();
-            pizzeriaDtos.add(getDto(restaurantModel,pizzeriaDto));
+            pizzeriaDtos.add(getDto(restaurantModel, pizzeriaDto));
         }
         return pizzeriaDtos;
     }
 
-    public PizzeriaDto getOne(long id){
+    public PizzeriaDto getOne(long id) {
         PizzeriaDto pizzeriaDto = new PizzeriaDto();
         Optional<PizzeriaModel> pizzeriaModelOptional = pizzeriaRepository.findById(id);
-        if (pizzeriaModelOptional.isPresent()){
+        if (pizzeriaModelOptional.isPresent()) {
             PizzeriaModel restaurantModel = pizzeriaModelOptional.get();
-            getDto(restaurantModel,pizzeriaDto);
+            getDto(restaurantModel, pizzeriaDto);
         }
         return pizzeriaDto;
     }
 
-    private PizzeriaDto getDto(PizzeriaModel pizzeriaModel, PizzeriaDto pizzeriaDto){
+    public void delete(long id) {
+        pizzeriaRepository.deleteById(id);
+    }
+
+    private PizzeriaDto getDto(PizzeriaModel pizzeriaModel, PizzeriaDto pizzeriaDto) {
         pizzeriaDto.setAddress(pizzeriaModel.getAddress());
         pizzeriaDto.setDescription(pizzeriaModel.getDescription());
         pizzeriaDto.setMail(pizzeriaModel.getMail());
@@ -59,7 +64,7 @@ public class PizzeriaService {
         return pizzeriaDto;
     }
 
-    private PizzeriaModel getModel(PizzeriaModel pizzeriaModel, PizzeriaDto pizzeriaDto){
+    private PizzeriaModel getModel(PizzeriaModel pizzeriaModel, PizzeriaDto pizzeriaDto) {
         pizzeriaModel.setAddress(pizzeriaDto.getAddress());
         pizzeriaModel.setDescription(pizzeriaDto.getDescription());
         pizzeriaModel.setMail(pizzeriaDto.getMail());
