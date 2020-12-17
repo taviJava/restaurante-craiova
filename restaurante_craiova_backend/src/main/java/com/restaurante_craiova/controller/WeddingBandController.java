@@ -18,7 +18,7 @@ public class WeddingBandController {
     public void save(@RequestBody WeddingBandDto weddingBandDto){
         weddingBandService.save(weddingBandDto);
     }
-    @PostMapping("/wedding")
+    @PutMapping("/wedding")
     public void update(@RequestBody WeddingBandDto weddingBandDto){
         weddingBandService.update(weddingBandDto);
     }
