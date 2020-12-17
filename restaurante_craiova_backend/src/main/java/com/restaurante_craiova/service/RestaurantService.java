@@ -46,6 +46,9 @@ public class RestaurantService {
         }
         return restaurantDto;
     }
+    public void delete(long id){
+        restaurantRepository.deleteById(id);
+    }
 
     private RestaurantDto getDto(RestaurantModel restaurantModel, RestaurantDto restaurantDto){
         restaurantDto.setAddress(restaurantModel.getAddress());
