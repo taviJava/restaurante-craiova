@@ -39,6 +39,19 @@ public class WeddingBandService {
         return weddingBandDtoList;
     }
 
+    public WeddingBandDto getOne(long id){
+        Optional<WeddingBandModel> weddingBandModelOptional = weddingBandRepository.findById(id);
+        WeddingBandDto weddingBandDto = new WeddingBandDto();
+        if (weddingBandModelOptional.isPresent()){
+            WeddingBandModel weddingBandModel = weddingBandModelOptional.get();
+            getDto(weddingBandDto,weddingBandModel);
+        }
+        return weddingBandDto;
+    }
+
+    public void delete(long id){
+        weddingBandRepository.deleteById(id);
+    }
 
     private WeddingBandDto getDto(WeddingBandDto weddingBandDto, WeddingBandModel weddingBandModel) {
         weddingBandDto.setId(weddingBandModel.getId());
