@@ -10,8 +10,8 @@ import {Accommodation} from '../../model/accommodation';
   styleUrls: ['./accommodation-list.component.css']
 })
 export class AccommodationListComponent implements OnInit {
-  accomodationList: Accommodation [] = []
-  accomodation: Accommodation = new Accommodation;
+  accomodationList: Accommodation [] = [];
+  accommodation: Accommodation = new Accommodation();
 
   constructor(private route: ActivatedRoute,
               private router: Router,
@@ -20,16 +20,19 @@ export class AccommodationListComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.getAccomodation()
+    this.getAccomodation();
   }
 
+  // tslint:disable-next-line:typedef
   getAccomodation() {
-    this.accomodationService.findAll().subscribe( data => {
+    this.accomodationService.findAll().subscribe(data => {
       this.accomodationList = [];
-      this.accomodationList =data;
-    })
+      this.accomodationList = data;
+    });
   }
-  add(){
-    this.router.navigate(['addAccomodation']);
+
+  // tslint:disable-next-line:typedef
+  add() {
+    this.router.navigate(['accomodationAdd']);
   }
 }

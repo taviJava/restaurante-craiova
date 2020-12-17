@@ -1,10 +1,22 @@
 <div class="row">
   <div class="col-md-12 ">
-    <div class="card-body">
-
-      <nav class="navbar navbar-light" style="background-color: lightsteelblue ">
-        <button (click)="add()" class="btn btn-secondary "> Add</button>
-      </nav>
+    <nav class="navbar navbar-light" style="background-color: lightsteelblue ">
+      <button (click)="add()" class="btn btn-secondary "> Add</button>
+    </nav>
+    <div class="row">
+      <div class="col-sm-4"
+           *ngFor="let accomodation of accomodationList">
+        <div class="card text-black-50  mb-5" style="background-color: lightsteelblue">
+          <div style="height: 200px">
+            <h5 class="card-title">{{accomodation.name}}</h5>
+            <h6 class="card-text">{{accomodation.description}}</h6>
+            <h6 class="card-text">{{accomodation.phone}}</h6>
+            <h6 class="card-text">{{accomodation.mail}}</h6>
+            <h6 class="card-text">{{accomodation.website}}</h6>
+            <h6 class="card-text">{{accomodation.address}}</h6>
+        </div>
+      </div>
     </div>
   </div>
+</div>
 </div>

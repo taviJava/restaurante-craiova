@@ -1,1 +1,90 @@
-<p>accommodation-add works!</p>
+
+<div class="container">
+  <div class="row">
+    <div class="col-md-12">
+
+      <div class="card my-5">
+        <div class="card-body">
+          <form (ngSubmit)="onSubmit()" #accommodationAdd="ngForm">
+            <div class="form-group">
+              <label for="name">Name</label>
+              <input type="text" [(ngModel)]="accommodation.name"
+                     class="form-control"
+                     id="name"
+                     name="name"
+                     placeholder="Enter your name"
+                     required #name="ngModel">
+            </div>
+            <div [hidden]="!name.pristine" class="alert alert-danger">Name is required</div>
+
+            <div class="form-group">
+              <label for="description">Description</label>
+              <input type="text" [(ngModel)]="accommodation.description"
+                     class="form-control"
+                     id="description"
+                     name="description"
+                     placeholder="Enter your description"
+                     required #description="ngModel">
+            </div>
+            <div [hidden]="!description.pristine" class="alert alert-danger">Description is required</div>
+
+            <div class="form-group">
+              <label for="phone">Phone</label>
+              <input type="number" [(ngModel)]="accommodation.phone"
+                     class="form-control"
+                     id="phone"
+                     name="phone"
+                     placeholder="Enter your phone"
+                     required #phone="ngModel">
+            </div>
+            <div [hidden]="!phone.pristine" class="alert alert-danger">Phone is required</div>
+
+            <div class="form-group">
+              <label for="mail">Mail</label>
+              <input type="text" [(ngModel)]="accommodation.mail"
+                     class="form-control"
+                     id="mail"
+                     name="mail"
+                     placeholder="Enter your mail"
+                     required #mail="ngModel">
+            </div>
+            <div [hidden]="!mail.pristine" class="alert alert-danger">Mail is required</div>
+
+            <div class="form-group">
+              <label for="website">Website</label>
+              <input type="text" [(ngModel)]="accommodation.website"
+                     class="form-control"
+                     id="website"
+                     name="website"
+                     placeholder="Enter your website"
+                     required #website="ngModel">
+            </div>
+            <div [hidden]="!website.pristine" class="alert alert-danger">Website is required</div>
+
+
+            <div class="form-group">
+              <label for="address">Address</label>
+              <input type="text" [(ngModel)]="accommodation.address"
+                     class="form-control"
+                     id="address"
+                     name="address"
+                     placeholder="Enter your address"
+                     required #address="ngModel">
+            </div>
+            <div [hidden]="!address.pristine" class="alert alert-danger">Address is required</div>
+
+            <div class="btn-group">
+              <a (click)="getAccommodation()"
+                 class="btn btn-secondary mx-1">Back
+              </a>
+              <button type="submit" [disabled]="!accommodationAdd.form.valid"
+                      class="btn btn-info">Submit
+              </button>
+            </div>
+          </form>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>
