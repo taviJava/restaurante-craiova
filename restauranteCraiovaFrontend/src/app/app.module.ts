@@ -53,7 +53,8 @@ import { WeddingBandListComponent } from './weddingBand/components/wedding-band-
     NgSelectModule,
     BrowserModule, Ng2SearchPipeModule,
     BrowserModule, NgxPaginationModule, BrowserAnimationsModule,
-    CarouselModule, WavesModule
+    CarouselModule, WavesModule,
+    CommonModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
