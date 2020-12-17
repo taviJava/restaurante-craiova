@@ -6,7 +6,7 @@ public abstract class LocalDto {
     private String address;
     private String description;
     private String mail;
-    private int phone;
+    private String phone;
     private String website;
 
     public long getId() {
@@ -49,11 +49,11 @@ public abstract class LocalDto {
         this.mail = mail;
     }
 
-    public int getPhone() {
+    public String getPhone() {
         return phone;
     }
 
-    public void setPhone(int phone) {
+    public void setPhone(String phone) {
         this.phone = phone;
     }
 

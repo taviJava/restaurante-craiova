@@ -1,2 +1,40 @@
-<p>wedding-band-list works!</p>
-<div ></div>
+<div class="container">
+  <div class="row">
+    <div class="col-md-12">
+
+      <div class="card my-5">
+        <div class="card-body">
+          <table class="table table-bordered table-striped">
+            <thead class="thead-dark">
+            <tr>
+              <th class="align-middle" scope="col">#</th>
+              <th class="align-middle" scope="col">Category name</th>
+              <th class="align-middle" scope="col">
+                <div class="row d-flex align-items-center">
+                  <div class="col">
+                    Operations
+                  </div>
+                  <div class="col">
+                    <button  class="btn btn-outline-success "> Add Category </button>
+                  </div>
+                </div>
+              </th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr *ngFor="let weddBand of wedding" >
+              <td>{{ (wedding.indexOf(weddBand)+1)}}</td>
+              <td>{{weddBand.name }}</td>
+
+              <td>
+                <div class="btn-group">
+                  <button  class="btn btn-outline-primary mx-1"> Edit </button>
+                  <button  class="btn btn-outline-danger"> Delete </button>
+
+                </div>
+              </td>
+            </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
