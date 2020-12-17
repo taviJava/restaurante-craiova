@@ -1,5 +1,4 @@
 import { BrowserModule } from '@angular/platform-browser';
-import { NgModule } from '@angular/core';
 import { CommonModule } from "@angular/common";
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -25,6 +24,7 @@ import { ConfectionerListComponent } from './confectioner/components/confectione
 import { ConfectionerAddComponent } from './confectioner/components/confectioner-add/confectioner-add.component';
 import { WeddingBandAddComponent } from './weddingBand/components/wedding-band-add/wedding-band-add.component';
 import { WeddingBandListComponent } from './weddingBand/components/wedding-band-list/wedding-band-list.component';
+import { NgModule } from '@angular/core';
 @NgModule({
   declarations: [
     AppComponent,

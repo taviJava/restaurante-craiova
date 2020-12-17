@@ -18,10 +18,10 @@ export class WeddingBandListComponent implements OnInit {
 
   ngOnInit(): void {
     this.wedding = [];
-    this.weddingService.findAll().subscribe(data =>{
+    this.weddingService.findAll().subscribe(data => {
       this.wedding = [];
       this.wedding = data;
-    })
+    });
   }
 
 }
