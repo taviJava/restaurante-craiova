@@ -1,1 +1,43 @@
-<p>advertisement-list works!</p>
+<div class="container">
+  <div class="row">
+    <div class="col-md-12">
+
+      <div class="card my-5">
+        <div class="card-body">
+          <table class="table table-bordered table-striped">
+            <thead class="thead-dark">
+            <tr>
+              <th class="align-middle" scope="col">#</th>
+              <th class="align-middle" scope="col">Advertisement</th>
+              <th class="align-middle" scope="col">
+                <div class="row d-flex align-items-center">
+                  <div class="col">
+                    Operations
+                  </div>
+                  <div class="col">
+                    <button  class="btn btn-outline-success "> Add Advertisement </button>
+                  </div>
+                </div>
+              </th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr *ngFor="let advertisement of advertismentList" >
+              <td>{{ (advertismentList.indexOf(advertisement)+1)}}</td>
+              <td>{{advertisement.firstName }}</td>
+
+              <td>
+                <div class="btn-group">
+                  <button  class="btn btn-outline-primary mx-1"> Edit </button>
+                  <button  class="btn btn-outline-danger"> Delete </button>
+
+                </div>
+              </td>
+            </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

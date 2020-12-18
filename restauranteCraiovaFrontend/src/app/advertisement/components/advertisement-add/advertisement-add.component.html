@@ -1,1 +1,80 @@
-<p>advertisement-add works!</p>
+
+
+<div class="container">
+  <div class="row">
+    <div class="col-md-12">
+      <div class="card my-5">
+        <div class="card-body">
+          <form (ngSubmit)="onSubmit()" #advertisementAdd="ngForm">
+            <div class="form-group">
+              <label for="firstName">firstName</label>
+              <input type="text" [(ngModel)]="advertisement.firstName"
+                     class="form-control"
+                     id="firstName"
+                     name="firstName"
+                     placeholder="Enter your firstName"
+                     required #firstName="ngModel">
+            </div>
+            <div [hidden]="!firstName.pristine" class="alert alert-danger">FirstName is required</div>
+
+            <div class="form-group">
+              <label for="lastName">lastName</label>
+              <input type="text" [(ngModel)]="advertisement.lastName"
+                     class="form-control"
+                     id="lastName"
+                     name="lastName"
+                     placeholder="Enter your lastName"
+                     required #lastName="ngModel">
+            </div>
+            <div [hidden]="!lastName.pristine" class="alert alert-danger">LastName is required</div>
+
+            <div class="form-group">
+              <label for="mail">mail</label>
+              <input type="text" [(ngModel)]="advertisement.mail"
+                     class="form-control"
+                     id="mail"
+                     name="mail"
+                     placeholder="Enter your mail"
+                     required #mail="ngModel">
+            </div>
+            <div [hidden]="!mail.pristine" class="alert alert-danger">Mail is required</div>
+
+            <div class="form-group">
+              <label for="phone">phone</label>
+              <input type="number" [(ngModel)]="advertisement.phone"
+                     class="form-control"
+                     id="phone"
+                     name="phone"
+                     placeholder="Enter your phone"
+                     required #phone="ngModel">
+            </div>
+            <div [hidden]="!phone.pristine" class="alert alert-danger">Phone is required</div>
+
+            <div class="form-group">
+              <label for="textMessage">textMessage</label>
+              <input type="text" [(ngModel)]="advertisement.textMessage"
+                     class="form-control"
+                     id="textMessage"
+                     name="textMessage"
+                     placeholder="Enter your textMessage"
+                     required #textMessage="ngModel">
+            </div>
+            <div [hidden]="!textMessage.pristine" class="alert alert-danger">TextMessage is required</div>
+
+
+
+            <div class="btn-group">
+              <a (click)="getAll()"
+                 class="btn btn-secondary mx-1">Back
+              </a>
+              <button type="submit" [disabled]="!advertisementAdd.form.valid"
+                      class="btn btn-info">Submit
+              </button>
+            </div>
+          </form>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>

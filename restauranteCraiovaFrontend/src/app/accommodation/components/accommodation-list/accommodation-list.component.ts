@@ -11,7 +11,7 @@ import {Accommodation} from '../../model/accommodation';
 })
 export class AccommodationListComponent implements OnInit {
   accomodationList: Accommodation [] = [];
-  accommodation: Accommodation = new Accommodation();
+
 
   constructor(private route: ActivatedRoute,
               private router: Router,
