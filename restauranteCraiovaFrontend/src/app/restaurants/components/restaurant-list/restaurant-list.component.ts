@@ -1,4 +1,8 @@
 import { Component, OnInit } from '@angular/core';
+import {ActivatedRoute, Router} from '@angular/router';
+import {NgbModal} from '@ng-bootstrap/ng-bootstrap';
+import {Restaurant} from '../../model/restaurant';
+import {RestaurantService} from '../../service/restaurant.service';
 
 @Component({
   selector: 'app-restaurant-list',
@@ -6,10 +10,21 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./restaurant-list.component.css']
 })
 export class RestaurantListComponent implements OnInit {
-
-  constructor() { }
+  restaurants: Restaurant[];
+  constructor(private restaurantService: RestaurantService,
+              private route: ActivatedRoute,
+              private router: Router,
+              private modalService: NgbModal) { }
 
   ngOnInit(): void {
+    this.restaurants = [];
+    this.restaurantService.findAll().subscribe(data => {
+      this.restaurants = [];
+      this.restaurants = data;
+    });
   }
-
+  // tslint:disable-next-line:typedef
+  add(){
+    this.router.navigate(['addRestauarant']);
+  }
 }

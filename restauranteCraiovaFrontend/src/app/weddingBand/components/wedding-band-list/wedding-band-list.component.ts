@@ -23,5 +23,9 @@ export class WeddingBandListComponent implements OnInit {
       this.wedding = data;
     });
   }
+  // tslint:disable-next-line:typedef
+  add(){
+    this.router.navigate(['addWedding']);
+  }
 
 }

@@ -24,7 +24,7 @@ const routes: Routes = [{path: '', component: RestaurantListComponent},
   {path: 'advertismentAdd', component: AdvertisementAddComponent},
   {path: 'advertismentList', component: AdvertisementListComponent},
   {path: 'accomodationAdd', component: AccommodationAddComponent},
-  {path: 'accomodationList', component: AccommodationListComponent},];
+  {path: 'accomodationList', component: AccommodationListComponent}, ];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
