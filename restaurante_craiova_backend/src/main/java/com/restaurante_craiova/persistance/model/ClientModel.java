@@ -6,7 +6,7 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
 @Entity
-public abstract class LocalModel {
+public abstract class ClientModel {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private long id;

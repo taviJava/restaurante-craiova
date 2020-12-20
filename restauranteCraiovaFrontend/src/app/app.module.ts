@@ -25,6 +25,7 @@ import { ConfectionerAddComponent } from './confectioner/components/confectioner
 import { WeddingBandAddComponent } from './weddingBand/components/wedding-band-add/wedding-band-add.component';
 import { WeddingBandListComponent } from './weddingBand/components/wedding-band-list/wedding-band-list.component';
 import { NgModule } from '@angular/core';
+import { NavbarUpComponent } from './common/components/navbar-up/navbar-up.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -39,7 +40,8 @@ import { NgModule } from '@angular/core';
     ConfectionerListComponent,
     ConfectionerAddComponent,
     WeddingBandAddComponent,
-    WeddingBandListComponent
+    WeddingBandListComponent,
+    NavbarUpComponent
   ],
   imports: [
     BrowserModule,

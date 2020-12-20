@@ -1,13 +1,30 @@
+.nvbr1{
+  height: 80px;
+}
+
 .rest1{
   margin: 0px;
-  padding: 0px;
+  padding-top: 0px;
   color: #ff0000;
-
 }
 .rest2{
   margin: 0px;
-  padding: 0px;
+  padding-top: 0px;
   color: darkgrey;
   text-decoration-line: underline;
   text-decoration-style: solid;
+}
+.tavlink {
+  margin-top: 0;
+  margin-left: 500px;
+}
+.tav{
+  background-color: blue;
+  margin-top: 0;
+  padding-top: 0;
+}
+.tav2{
+  background-color: blue;
+  padding-top: 0;
+  margin-top: 0;
 }

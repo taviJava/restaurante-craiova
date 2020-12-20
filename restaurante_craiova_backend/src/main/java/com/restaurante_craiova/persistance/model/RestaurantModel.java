@@ -3,5 +3,5 @@ package com.restaurante_craiova.persistance.model;
 import javax.persistence.Entity;
 
 @Entity
-public class RestaurantModel extends LocalModel {
+public class RestaurantModel extends ClientModel {
 }
