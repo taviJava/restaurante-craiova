@@ -27,6 +27,7 @@ import { WeddingBandListComponent } from './weddingBand/components/wedding-band-
 import { NgModule } from '@angular/core';
 import { NavbarUpComponent } from './common/components/navbar-up/navbar-up.component';
 import { PhotoComponent } from './photos/components/photo/photo.component';
+import {NavbarDownComponent} from './common/components/navbar-down/navbar-down.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -43,7 +44,8 @@ import { PhotoComponent } from './photos/components/photo/photo.component';
     WeddingBandAddComponent,
     WeddingBandListComponent,
     NavbarUpComponent,
-    PhotoComponent
+    PhotoComponent,
+    NavbarDownComponent
   ],
   imports: [
     BrowserModule,
