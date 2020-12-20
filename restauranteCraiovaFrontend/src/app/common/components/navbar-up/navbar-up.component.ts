@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {Router} from '@angular/router';
+import * as $ from 'jquery';
 
 @Component({
   selector: 'app-navbar-up',
@@ -8,12 +9,24 @@ import {Router} from '@angular/router';
 })
 export class NavbarUpComponent implements OnInit {
 
-  constructor(private router: Router) { }
+  constructor(private router: Router) {
+  }
 
   ngOnInit(): void {
   }
+
 // tslint:disable-next-line:typedef
-goToHome(){
+  goToHome() {
     this.router.navigate(['']);
-}
+  }
+
+// tslint:disable-next-line:typedef
+  changeView(event) {
+     if ( event.type === 'mouseover'){
+       $('#foa').addClass('active');
+     }
+     if (event.type === 'mouseout'){
+       $('#foa').removeClass('active');
+     }
+    }
 }

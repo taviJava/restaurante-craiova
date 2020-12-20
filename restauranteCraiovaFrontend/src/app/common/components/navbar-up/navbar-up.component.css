@@ -26,7 +26,16 @@
   font-size:30px; font-weight: bolder;
   line-height: 0px;
   cursor: pointer;
-  letter-spacing: 1px;
+  letter-spacing: 0px;
   margin-left: 500px;
 }
-
+.active{
+  color: red;
+  font-family:  'Segoe UI' , fantasy;
+  font-size:30px; font-weight: bolder;
+  line-height: 0px;
+  cursor: pointer;
+  letter-spacing: 0px;
+  margin-left: 500px;
+  text-decoration: underline;
+}
