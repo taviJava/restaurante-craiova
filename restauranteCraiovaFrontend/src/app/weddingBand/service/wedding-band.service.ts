@@ -34,4 +34,7 @@ export class WeddingBandService {
   public delete(id: number) {
     return this.http.delete(`${this.weddingUrl}/${id}`);
   }
+  getWeedingBandphotos(id: number): Observable<any> {
+    return this.http.get(`${this.weddingUrl}/photos/${id}`);
+  }
 }

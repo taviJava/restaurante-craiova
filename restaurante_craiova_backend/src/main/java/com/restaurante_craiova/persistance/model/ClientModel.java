@@ -1,9 +1,9 @@
 package com.restaurante_craiova.persistance.model;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+
+import javax.persistence.*;
+import java.util.List;
 
 @Entity
 public abstract class ClientModel {
@@ -16,6 +16,17 @@ public abstract class ClientModel {
     private String mail;
     private String phone;
     private String website;
+    @OneToMany(fetch = FetchType.EAGER, cascade = CascadeType.ALL, mappedBy = "clientModel")
+    @JsonIgnoreProperties("clientModel")
+    private List<PhotoC> photos;
+
+    public List<PhotoC> getPhotos() {
+        return photos;
+    }
+
+    public void setPhotos(List<PhotoC> photos) {
+        this.photos = photos;
+    }
 
     public long getId() {
         return id;

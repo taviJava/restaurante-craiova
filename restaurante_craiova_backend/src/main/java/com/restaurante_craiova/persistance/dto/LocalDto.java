@@ -8,9 +8,17 @@ public abstract class LocalDto {
     private String mail;
     private String phone;
     private String website;
-
+    private String idPhoto;
     public long getId() {
         return id;
+    }
+
+    public String getIdPhoto() {
+        return idPhoto;
+    }
+
+    public void setIdPhoto(String idPhoto) {
+        this.idPhoto = idPhoto;
     }
 
     public void setId(long id) {

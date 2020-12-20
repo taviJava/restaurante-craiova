@@ -12,6 +12,7 @@ import { AdvertisementAddComponent } from './advertisement/components/advertisem
 import { AdvertisementListComponent } from './advertisement/components/advertisement-list/advertisement-list.component';
 import { AccommodationAddComponent } from './accommodation/components/accommodation-add/accommodation-add.component';
 import { AccommodationListComponent } from './accommodation/components/accommodation-list/accommodation-list.component';
+import {PhotoComponent} from './photos/components/photo/photo.component';
 
 const routes: Routes = [{path: '', component: RestaurantListComponent},
   {path: 'addRestauarant', component: RestaurantAddComponent},
@@ -24,7 +25,9 @@ const routes: Routes = [{path: '', component: RestaurantListComponent},
   {path: 'advertismentAdd', component: AdvertisementAddComponent},
   {path: 'advertismentList', component: AdvertisementListComponent},
   {path: 'accomodationAdd', component: AccommodationAddComponent},
-  {path: 'accomodationList', component: AccommodationListComponent}, ];
+  {path: 'accomodationList', component: AccommodationListComponent},
+  {path: 'photos', component: PhotoComponent}
+];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],

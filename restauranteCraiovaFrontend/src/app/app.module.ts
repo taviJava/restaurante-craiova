@@ -1,5 +1,5 @@
 import { BrowserModule } from '@angular/platform-browser';
-import { CommonModule } from "@angular/common";
+import { CommonModule } from '@angular/common';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
@@ -26,6 +26,7 @@ import { WeddingBandAddComponent } from './weddingBand/components/wedding-band-a
 import { WeddingBandListComponent } from './weddingBand/components/wedding-band-list/wedding-band-list.component';
 import { NgModule } from '@angular/core';
 import { NavbarUpComponent } from './common/components/navbar-up/navbar-up.component';
+import { PhotoComponent } from './photos/components/photo/photo.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -41,7 +42,8 @@ import { NavbarUpComponent } from './common/components/navbar-up/navbar-up.compo
     ConfectionerAddComponent,
     WeddingBandAddComponent,
     WeddingBandListComponent,
-    NavbarUpComponent
+    NavbarUpComponent,
+    PhotoComponent
   ],
   imports: [
     BrowserModule,
