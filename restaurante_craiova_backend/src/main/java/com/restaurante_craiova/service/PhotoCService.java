@@ -34,7 +34,8 @@ public class PhotoCService {
         return photoCRepository.findAll().stream();
     }
 
-    public Stream<PhotoC> getAllHotelphotos(ClientModel clientModel) {
+    public Stream<PhotoC> getAllClientphotos(ClientModel clientModel)
+    {
         return clientModel.getPhotos().stream();
     }
 }

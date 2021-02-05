@@ -13,6 +13,7 @@ import { AdvertisementListComponent } from './advertisement/components/advertise
 import { AccommodationAddComponent } from './accommodation/components/accommodation-add/accommodation-add.component';
 import { AccommodationListComponent } from './accommodation/components/accommodation-list/accommodation-list.component';
 import {PhotoComponent} from './photos/components/photo/photo.component';
+import {MenuLeftComponent} from './common/components/menu-left/menu-left.component';
 
 const routes: Routes = [{path: '', component: RestaurantListComponent},
   {path: 'addRestauarant', component: RestaurantAddComponent},
@@ -26,7 +27,8 @@ const routes: Routes = [{path: '', component: RestaurantListComponent},
   {path: 'advertismentList', component: AdvertisementListComponent},
   {path: 'accomodationAdd', component: AccommodationAddComponent},
   {path: 'accomodationList', component: AccommodationListComponent},
-  {path: 'photos', component: PhotoComponent}
+
+ // {path: 'photos', component: PhotoComponent}
 ];
 
 @NgModule({

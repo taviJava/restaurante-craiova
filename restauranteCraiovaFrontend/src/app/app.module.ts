@@ -28,6 +28,7 @@ import { NgModule } from '@angular/core';
 import { NavbarUpComponent } from './common/components/navbar-up/navbar-up.component';
 import { PhotoComponent } from './photos/components/photo/photo.component';
 import {NavbarDownComponent} from './common/components/navbar-down/navbar-down.component';
+import { MenuLeftComponent } from './common/components/menu-left/menu-left.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -45,7 +46,8 @@ import {NavbarDownComponent} from './common/components/navbar-down/navbar-down.c
     WeddingBandListComponent,
     NavbarUpComponent,
     PhotoComponent,
-    NavbarDownComponent
+    NavbarDownComponent,
+    MenuLeftComponent
   ],
   imports: [
     BrowserModule,
