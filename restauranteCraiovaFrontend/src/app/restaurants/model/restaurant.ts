@@ -6,4 +6,5 @@ export class Restaurant {
   mail: string;
   phone: string;
   website: string;
+  photos: any;
 }

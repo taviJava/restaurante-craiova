@@ -16,7 +16,7 @@ import {PhotoComponent} from './photos/components/photo/photo.component';
 import {MenuLeftComponent} from './common/components/menu-left/menu-left.component';
 
 const routes: Routes = [{path: '', component: RestaurantListComponent},
-  {path: 'addRestauarant', component: RestaurantAddComponent},
+  {path: 'addRestaurant', component: RestaurantAddComponent},
   {path: 'addWedding', component: WeddingBandAddComponent},
   {path: 'weddingList', component: WeddingBandListComponent},
   {path: 'pizzeriaAdd', component: PizzeriaAddComponent},
@@ -27,6 +27,7 @@ const routes: Routes = [{path: '', component: RestaurantListComponent},
   {path: 'advertismentList', component: AdvertisementListComponent},
   {path: 'accomodationAdd', component: AccommodationAddComponent},
   {path: 'accomodationList', component: AccommodationListComponent},
+  {path: 'restaurantList', component: RestaurantListComponent},
 
  // {path: 'photos', component: PhotoComponent}
 ];
