@@ -29,6 +29,10 @@ import { NavbarUpComponent } from './common/components/navbar-up/navbar-up.compo
 import { PhotoComponent } from './photos/components/photo/photo.component';
 import {NavbarDownComponent} from './common/components/navbar-down/navbar-down.component';
 import { MenuLeftComponent } from './common/components/menu-left/menu-left.component';
+import {ViewRestaurantComponent} from './restaurants/components/view-restaurant/view-restaurant.component';
+import { Test1Component } from './test/components/test1/test1.component';
+
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -47,7 +51,9 @@ import { MenuLeftComponent } from './common/components/menu-left/menu-left.compo
     NavbarUpComponent,
     PhotoComponent,
     NavbarDownComponent,
-    MenuLeftComponent
+    MenuLeftComponent,
+    ViewRestaurantComponent,
+    Test1Component
   ],
   imports: [
     BrowserModule,
@@ -62,7 +68,7 @@ import { MenuLeftComponent } from './common/components/menu-left/menu-left.compo
     BrowserModule, Ng2SearchPipeModule,
     BrowserModule, NgxPaginationModule, BrowserAnimationsModule,
     CarouselModule, WavesModule,
-    CommonModule,
+    CommonModule
   ],
   providers: [],
   bootstrap: [AppComponent]

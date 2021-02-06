@@ -14,6 +14,8 @@ import { AccommodationAddComponent } from './accommodation/components/accommodat
 import { AccommodationListComponent } from './accommodation/components/accommodation-list/accommodation-list.component';
 import {PhotoComponent} from './photos/components/photo/photo.component';
 import {MenuLeftComponent} from './common/components/menu-left/menu-left.component';
+import {ViewRestaurantComponent} from './restaurants/components/view-restaurant/view-restaurant.component';
+import {Test1Component} from './test/components/test1/test1.component';
 
 const routes: Routes = [{path: '', component: RestaurantListComponent},
   {path: 'addRestaurant', component: RestaurantAddComponent},
@@ -28,6 +30,8 @@ const routes: Routes = [{path: '', component: RestaurantListComponent},
   {path: 'accomodationAdd', component: AccommodationAddComponent},
   {path: 'accomodationList', component: AccommodationListComponent},
   {path: 'restaurantList', component: RestaurantListComponent},
+  {path: 'restaurant/:id', component: ViewRestaurantComponent},
+  {path: 'test', component: Test1Component},
 
  // {path: 'photos', component: PhotoComponent}
 ];

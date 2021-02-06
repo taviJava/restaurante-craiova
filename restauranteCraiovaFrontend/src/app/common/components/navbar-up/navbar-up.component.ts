@@ -8,7 +8,7 @@ import * as $ from 'jquery';
   styleUrls: ['./navbar-up.component.css']
 })
 export class NavbarUpComponent implements OnInit {
-
+  isCollapsed = true;
   constructor(private router: Router) {
   }
 

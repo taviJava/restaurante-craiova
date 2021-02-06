@@ -42,7 +42,7 @@ export class RestaurantAddComponent implements OnInit {
   // tslint:disable-next-line:typedef
   onSubmit() {
     this.restaurantService.save(this.restaurant).subscribe(data => {
-      this.upload();
+      this.uploadPhotos();
       setTimeout(() => {
         this.getAll();
       },
@@ -94,23 +94,46 @@ export class RestaurantAddComponent implements OnInit {
   }
 
   // tslint:disable-next-line:typedef
-  upload() {
-    this.progress = 0;
-    this.currentFile = this.selectedFiles.item(0);
-    this.restaurantService.upload(this.currentFile).subscribe(
+  // upload() {
+  //   this.progress = 0;
+  //   this.currentFile = this.selectedFiles.item(0);
+  //   this.restaurantService.upload(this.currentFile).subscribe(
+  //     event => {
+  //       if (event.type === HttpEventType.UploadProgress) {
+  //         this.progress = Math.round(100 * event.loaded / event.total);
+  //       } else if (event instanceof HttpResponse) {
+  //         this.message = event.body.message;
+  //         const a = event.body.id;
+  //       }
+  //     },
+  //     err => {
+  //       this.progress = 0;
+  //       this.message = 'Could not upload the file!';
+  //       this.currentFile = undefined;
+  //     });
+  // }
+  uploadPhotos(): void {
+    this.message = '';
+
+    for (let i = 0; i < this.selectedFiles.length; i++) {
+      this.upload2(i, this.selectedFiles[i]);
+    }
+  }
+
+  upload2(idx, file): void {
+    this.progressInfos[idx] = {value: 0, fileName: file.name};
+
+    this.restaurantService.upload(file).subscribe(
       event => {
         if (event.type === HttpEventType.UploadProgress) {
-          this.progress = Math.round(100 * event.loaded / event.total);
+          this.progressInfos[idx].percentage = Math.round(100 * event.loaded / event.total);
         } else if (event instanceof HttpResponse) {
-          this.message = event.body.message;
-          const a = event.body.id;
+          this.photos = this.restaurantService.getFiles();
         }
       },
       err => {
-        this.progress = 0;
-        this.message = 'Could not upload the file!';
-        this.currentFile = undefined;
+        this.progressInfos[idx].percentage = 0;
+        this.message = 'Could not upload the file:' + file.name;
       });
   }
-
 }

@@ -13,7 +13,7 @@ export class RestaurantService {
 
   constructor(private http: HttpClient) {
     this.restaurantUrl = 'http://localhost:8080/restaurant';
-    this.photoUrl = 'http://localhost:8080/photos';
+    this.photoUrl = 'http://localhost:8080/photos/restaurant';
   }
 
   public findAll(): Observable<Restaurant[]> {
@@ -52,4 +52,7 @@ export class RestaurantService {
   getRestaurantphotos(id: number): Observable<any> {
     return this.http.get(`http://localhost:8080/restaurant/photos/${id}`);
   }
+
+  getFiles(): Observable<any> {
+    return this.http.get(this.photoUrl); }
 }
