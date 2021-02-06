@@ -1,10 +1,8 @@
 import { BrowserModule } from '@angular/platform-browser';
-import { CommonModule } from '@angular/common';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import {HTTP_INTERCEPTORS, HttpClientModule} from '@angular/common/http';
 import {MDBBootstrapModule} from 'angular-bootstrap-md';
 import {NgMultiSelectDropDownModule} from 'ng-multiselect-dropdown';
 import {NgSelectModule} from '@ng-select/ng-select';
@@ -31,6 +29,10 @@ import {NavbarDownComponent} from './common/components/navbar-down/navbar-down.c
 import { MenuLeftComponent } from './common/components/menu-left/menu-left.component';
 import {ViewRestaurantComponent} from './restaurants/components/view-restaurant/view-restaurant.component';
 import { Test1Component } from './test/components/test1/test1.component';
+import {HttpClientModule} from '@angular/common/http';
+import {CommonModule} from '@angular/common';
+import { Test2Component } from './test/components/test2/test2.component';
+
 
 
 @NgModule({
@@ -53,7 +55,8 @@ import { Test1Component } from './test/components/test1/test1.component';
     NavbarDownComponent,
     MenuLeftComponent,
     ViewRestaurantComponent,
-    Test1Component
+    Test1Component,
+    Test2Component
   ],
   imports: [
     BrowserModule,
@@ -68,7 +71,7 @@ import { Test1Component } from './test/components/test1/test1.component';
     BrowserModule, Ng2SearchPipeModule,
     BrowserModule, NgxPaginationModule, BrowserAnimationsModule,
     CarouselModule, WavesModule,
-    CommonModule
+    CommonModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

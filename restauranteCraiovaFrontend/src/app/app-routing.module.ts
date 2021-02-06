@@ -16,6 +16,7 @@ import {PhotoComponent} from './photos/components/photo/photo.component';
 import {MenuLeftComponent} from './common/components/menu-left/menu-left.component';
 import {ViewRestaurantComponent} from './restaurants/components/view-restaurant/view-restaurant.component';
 import {Test1Component} from './test/components/test1/test1.component';
+import {Test2Component} from './test/components/test2/test2.component';
 
 const routes: Routes = [{path: '', component: RestaurantListComponent},
   {path: 'addRestaurant', component: RestaurantAddComponent},
@@ -32,12 +33,13 @@ const routes: Routes = [{path: '', component: RestaurantListComponent},
   {path: 'restaurantList', component: RestaurantListComponent},
   {path: 'restaurant/:id', component: ViewRestaurantComponent},
   {path: 'test', component: Test1Component},
+  {path: 'test2', component: Test2Component},
 
  // {path: 'photos', component: PhotoComponent}
 ];
 
 @NgModule({
-  imports: [RouterModule.forRoot(routes)],
+  imports: [RouterModule.forRoot(routes, { relativeLinkResolution: 'legacy' })],
   exports: [RouterModule]
 })
 export class AppRoutingModule { }
