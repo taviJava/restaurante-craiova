@@ -59,6 +59,8 @@ public class ConfectionerService {
         confectionerDto.setWebsite(confectionerModel.getWebsite());
         confectionerDto.setAddress(confectionerModel.getAddress());
         confectionerDto.setPhone(confectionerModel.getPhone());
+        confectionerDto.setLatidude(confectionerModel.getLatidude());
+        confectionerDto.setLongitude(confectionerModel.getLongitude());
         confectionerDto.setId(confectionerModel.getId());
         return confectionerDto;
     }
@@ -70,6 +72,8 @@ public class ConfectionerService {
         confectionerModel.setWebsite(confectionerDto.getWebsite());
         confectionerModel.setAddress(confectionerDto.getAddress());
         confectionerModel.setPhone(confectionerDto.getPhone());
+        confectionerModel.setLatidude(confectionerDto.getLatidude());
+        confectionerModel.setLongitude(confectionerDto.getLongitude());
         return confectionerModel;
     }
 }

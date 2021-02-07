@@ -6,4 +6,6 @@ export class Pizzeria {
   mail: string;
   phone: string;
   website: string;
+  longitude: number;
+  latidude: number;
 }

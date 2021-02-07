@@ -7,4 +7,6 @@ export class Restaurant {
   phone: string;
   website: string;
   photos: any;
+  longitude: number;
+  latidude: number;
 }

@@ -58,6 +58,8 @@ public class RestaurantService {
         restaurantDto.setPhone(restaurantModel.getPhone());
         restaurantDto.setWebsite(restaurantModel.getWebsite());
         restaurantDto.setId(restaurantModel.getId());
+        restaurantDto.setLatidude(restaurantModel.getLatidude());
+        restaurantDto.setLongitude(restaurantModel.getLongitude());
         return restaurantDto;
     }
 
@@ -68,6 +70,8 @@ public class RestaurantService {
         restaurantModel.setName(restaurantDto.getName());
         restaurantModel.setPhone(restaurantDto.getPhone());
         restaurantModel.setWebsite(restaurantDto.getWebsite());
+        restaurantModel.setLatidude(restaurantDto.getLatidude());
+        restaurantModel.setLongitude(restaurantDto.getLongitude());
         return restaurantModel;
     }
 }
