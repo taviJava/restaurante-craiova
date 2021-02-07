@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {Restaurant} from '../../../restaurants/model/restaurant';
 import {RestaurantService} from '../../../restaurants/service/restaurant.service';
 import {ActivatedRoute, Router} from '@angular/router';
@@ -13,21 +13,30 @@ import {PizzeriaService} from '../../service/pizzeria.service';
 })
 export class PizzeriaListComponent implements OnInit {
   pizzerias: Pizzeria[];
+
   constructor(private pizzeriaService: PizzeriaService,
               private route: ActivatedRoute,
               private router: Router,
-              private modalService: NgbModal) { }
+            ) {
+  }
 
   ngOnInit(): void {
     this.pizzerias = [];
+    this.getAll();
+  }
+
+  // tslint:disable-next-line:typedef
+  add() {
+    this.router.navigate(['addPizzeria']);
+  }
+  // tslint:disable-next-line:typedef
+  getAll() {
     this.pizzeriaService.findAll().subscribe(data => {
       this.pizzerias = [];
       this.pizzerias = data;
+      for (const pizza of this.pizzerias) {
+        pizza.photos = this.pizzeriaService.getPizzeriaphotos(pizza.id);
+      }
     });
   }
-  // tslint:disable-next-line:typedef
-  add(){
-    this.router.navigate(['addPizzeria']);
-  }
-
 }
