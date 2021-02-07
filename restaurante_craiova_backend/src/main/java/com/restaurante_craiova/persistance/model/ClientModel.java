@@ -16,6 +16,8 @@ public abstract class ClientModel {
     private String mail;
     private String phone;
     private String website;
+    private double longitude;
+    private double latidude;
     @OneToMany(fetch = FetchType.EAGER, cascade = CascadeType.ALL, mappedBy = "clientModel")
     @JsonIgnoreProperties("clientModel")
     private List<PhotoC> photos;
@@ -70,6 +72,22 @@ public abstract class ClientModel {
 
     public String getPhone() {
         return phone;
+    }
+
+    public double getLongitude() {
+        return longitude;
+    }
+
+    public void setLongitude(double longitude) {
+        this.longitude = longitude;
+    }
+
+    public double getLatidude() {
+        return latidude;
+    }
+
+    public void setLatidude(double latidude) {
+        this.latidude = latidude;
     }
 
     public void setPhone(String phone) {

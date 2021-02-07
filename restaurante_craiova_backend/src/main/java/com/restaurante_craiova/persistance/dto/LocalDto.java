@@ -7,6 +7,8 @@ public abstract class LocalDto {
     private String description;
     private String mail;
     private String phone;
+    private double longitude;
+    private double latidude;
     private String website;
     private String idPhoto;
     public long getId() {
@@ -59,6 +61,22 @@ public abstract class LocalDto {
 
     public String getPhone() {
         return phone;
+    }
+
+    public double getLongitude() {
+        return longitude;
+    }
+
+    public void setLongitude(double longitude) {
+        this.longitude = longitude;
+    }
+
+    public double getLatidude() {
+        return latidude;
+    }
+
+    public void setLatidude(double latidude) {
+        this.latidude = latidude;
     }
 
     public void setPhone(String phone) {

@@ -60,6 +60,8 @@ public class PizzeriaService {
         pizzeriaDto.setName(pizzeriaModel.getName());
         pizzeriaDto.setPhone(pizzeriaModel.getPhone());
         pizzeriaDto.setWebsite(pizzeriaModel.getWebsite());
+        pizzeriaDto.setLatidude(pizzeriaModel.getLatidude());
+        pizzeriaDto.setLongitude(pizzeriaModel.getLongitude());
         pizzeriaDto.setId(pizzeriaModel.getId());
         return pizzeriaDto;
     }
@@ -71,6 +73,8 @@ public class PizzeriaService {
         pizzeriaModel.setName(pizzeriaDto.getName());
         pizzeriaModel.setPhone(pizzeriaDto.getPhone());
         pizzeriaModel.setWebsite(pizzeriaDto.getWebsite());
+        pizzeriaModel.setLatidude(pizzeriaDto.getLatidude());
+        pizzeriaModel.setLongitude(pizzeriaDto.getLongitude());
         return pizzeriaModel;
     }
 }
