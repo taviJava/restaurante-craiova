@@ -28,6 +28,9 @@ export class AccommodationListComponent implements OnInit {
     this.accomodationService.findAll().subscribe(data => {
       this.accomodationList = [];
       this.accomodationList = data;
+      for (const accommodation of this.accomodationList) {
+        accommodation.photos = this.accomodationService.getAccommodationphotos(accommodation.id);
+      }
     });
   }
 

@@ -19,6 +19,7 @@ export class ConfectionerListComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    this.confectionerList = [];
     this.getAll();
   }
 
@@ -27,10 +28,14 @@ export class ConfectionerListComponent implements OnInit {
     this.confectionerService.findAll().subscribe(data => {
       this.confectionerList = [];
       this.confectionerList = data;
-    } );
+      for (const confectioner of this.confectionerList) {
+        confectioner.photos = this.confectionerService.getConfectionerphotos(confectioner.id);
+      }
+    });
   }
+
   // tslint:disable-next-line:typedef
-  add(){
+  add() {
     this.router.navigate(['confectionerAdd']);
   }
 }

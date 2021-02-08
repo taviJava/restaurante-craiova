@@ -35,7 +35,7 @@ export class PizzeriaAddComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.pizzeria = new Restaurant();
+    this.pizzeria = new Pizzeria();
   }
 
   // tslint:disable-next-line:typedef
