@@ -25,6 +25,7 @@ import 'angular-touch';
 import 'screenfull';
 import angularSuperGallery from 'angular-super-gallery';
 import * as angular from 'angular';
+import {ImgObj} from '../../model/img-obj';
 
 angular.module('app', [angularSuperGallery]);
 @Component({
@@ -33,6 +34,7 @@ angular.module('app', [angularSuperGallery]);
   styleUrls: ['./view-restaurant.component.css']
 })
 export class ViewRestaurantComponent implements OnInit {
+  imageObject: ImgObj[] = [];
   latitude = 44.33405;
   longitude = 23.76040;
   map: Map;
@@ -58,6 +60,7 @@ export class ViewRestaurantComponent implements OnInit {
               private router: Router) { }
 
   ngOnInit(): void {
+    this.imageObject = [];
     this.id = this.route.snapshot.params.id;
     this.resturant = new Restaurant();
     this.restService.getById(this.id).subscribe(result => {
@@ -99,5 +102,15 @@ export class ViewRestaurantComponent implements OnInit {
       });
     });
     this.photos = this.restService.getRestaurantphotos(this.id);
+    this.photos.subscribe(result => {
+      for (const photo of result){
+        const img: ImgObj = new ImgObj();
+        img.image = photo.url;
+        img.thumbImage = photo.url;
+        img.title = photo.name;
+        img.alt = 'Image alt';
+        this.imageObject.push(img);
+      }
+    });
   }
 }

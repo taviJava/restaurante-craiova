@@ -21,7 +21,7 @@
   </div>
   <div class="card my-2">
     <div class="card-body">
-
+      <ng-image-slider *ngIf="photos | async as photos"  [images]="imageObject" #nav></ng-image-slider>
     </div>
   </div>
   <div class="card my-2">

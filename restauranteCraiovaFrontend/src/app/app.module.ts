@@ -32,6 +32,7 @@ import { Test1Component } from './test/components/test1/test1.component';
 import {HttpClientModule} from '@angular/common/http';
 import {CommonModule} from '@angular/common';
 import { Test2Component } from './test/components/test2/test2.component';
+import {NgImageSliderModule} from 'ng-image-slider';
 
 
 
@@ -71,7 +72,7 @@ import { Test2Component } from './test/components/test2/test2.component';
     BrowserModule, Ng2SearchPipeModule,
     BrowserModule, NgxPaginationModule, BrowserAnimationsModule,
     CarouselModule, WavesModule,
-    CommonModule,
+    CommonModule, NgImageSliderModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
