@@ -1,3 +1,5 @@
+import {Observable} from 'rxjs';
+
 export class Restaurant {
   id: number;
   name: string;
@@ -5,8 +7,8 @@ export class Restaurant {
   description: string;
   mail: string;
   phone: string;
-  website: string;
-  photos: any;
   longitude: number;
   latidude: number;
+  website: string;
+  photos: Observable<any>;
 }

@@ -3,6 +3,7 @@ import {ActivatedRoute, Router} from '@angular/router';
 import {NgbModal} from '@ng-bootstrap/ng-bootstrap';
 import {Restaurant} from '../../model/restaurant';
 import {RestaurantService} from '../../service/restaurant.service';
+import {Observable} from 'rxjs';
 
 @Component({
   selector: 'app-restaurant-list',
@@ -11,6 +12,7 @@ import {RestaurantService} from '../../service/restaurant.service';
 })
 export class RestaurantListComponent implements OnInit {
   restaurants: Restaurant[] = [];
+  photos: Observable<any>;
 
   constructor(private restaurantService: RestaurantService,
               private route: ActivatedRoute,
@@ -37,5 +39,9 @@ export class RestaurantListComponent implements OnInit {
   // tslint:disable-next-line:typedef
   add() {
     this.router.navigate(['addRestaurant']);
+  }
+  // tslint:disable-next-line:typedef
+  viewRestaurant(id: number){
+    this.router.navigate(['restaurant/' + id]);
   }
 }

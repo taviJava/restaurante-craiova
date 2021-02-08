@@ -61,6 +61,14 @@ body{
   margin-top: 20px;
 }
 img{
-  height: 300px;
-  width: 400px;
+  height: 200px;
+  width: 270px;
+}
+.divButton{
+  margin-right: 0;
+  margin-bottom: 0;
+}
+.btn-sm{
+  margin-left: 500px;
+  margin-bottom: 0;
 }

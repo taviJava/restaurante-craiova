@@ -1,4 +1,23 @@
 #map {
-  height: 400px;
+  height: 300px;
   width: 100%;
+}
+.container{
+  margin-left: 270px;
+  width: 900px;
+}
+.card-body{
+  padding: 0;
+}
+.rest{
+  margin-left: 5px;
+}
+
+.container{
+  margin-top: 20px;
+}
+img{
+  height: 280px;
+  width: 400px;
+  margin: 5px;
 }

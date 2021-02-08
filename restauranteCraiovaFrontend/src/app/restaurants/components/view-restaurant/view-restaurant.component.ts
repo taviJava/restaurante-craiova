@@ -13,6 +13,20 @@ import Icon from 'ol/style/Icon';
 import { fromLonLat } from 'ol/proj';
 import {RestaurantService} from '../../service/restaurant.service';
 import {Restaurant} from '../../model/restaurant';
+import {ActivatedRoute, Router} from '@angular/router';
+import {Observable} from 'rxjs';
+import 'bootstrap/dist/css/bootstrap.min.css';
+import 'angular-super-gallery/dist/angular-super-gallery.css';
+import 'jquery';
+import 'angular';
+import 'bootstrap';
+import 'angular-animate';
+import 'angular-touch';
+import 'screenfull';
+import angularSuperGallery from 'angular-super-gallery';
+import * as angular from 'angular';
+
+angular.module('app', [angularSuperGallery]);
 @Component({
   selector: 'app-view-restaurant',
   templateUrl: './view-restaurant.component.html',
@@ -38,41 +52,52 @@ export class ViewRestaurantComponent implements OnInit {
   });
   resturant: Restaurant = new Restaurant();
   id: number;
-  constructor(private restService: RestaurantService) { }
+  photos: Observable<any>;
+  constructor(private restService: RestaurantService,
+              private  route: ActivatedRoute,
+              private router: Router) { }
 
   ngOnInit(): void {
-    this.marker = new Feature({
-      geometry: new Point(fromLonLat([ 23.76040 , 44.33405]))
-    });
-    this.marker.setStyle(this.iconStyle);
+    this.id = this.route.snapshot.params.id;
+    this.resturant = new Restaurant();
+    this.restService.getById(this.id).subscribe(result => {
+      this.resturant = new Restaurant();
+      this.resturant = result;
+      console.log(this.resturant.website);
+      this.marker = new Feature({
+        geometry: new Point(fromLonLat([ this.resturant.longitude , this.resturant.latidude]))
+      });
+      this.marker.setStyle(this.iconStyle);
 
-    this.vectorSource = new VectorSource({
-      features: [this.marker]
-    });
+      this.vectorSource = new VectorSource({
+        features: [this.marker]
+      });
 
-    this.vectorLayer = new VectorLayer({
-      source: this.vectorSource
-    });
+      this.vectorLayer = new VectorLayer({
+        source: this.vectorSource
+      });
 
-    // XYZ
-    this.xyzSource = new XyzSource({
-      url: 'http://tile.osm.org/{z}/{x}/{y}.png'
-    });
+      // XYZ
+      this.xyzSource = new XyzSource({
+        url: 'http://tile.osm.org/{z}/{x}/{y}.png'
+      });
 
-    this.tileLayer = new TileLayer({
-      source: this.xyzSource
-    });
+      this.tileLayer = new TileLayer({
+        source: this.xyzSource
+      });
 
-    // View and map
-    this.view = new View({
-      center: fromLonLat([23.76040, 44.33405]),
-      zoom: 14
-    });
+      // View and map
+      this.view = new View({
+        center: fromLonLat([this.resturant.longitude , this.resturant.latidude]),
+        zoom: 14
+      });
 
-    this.map = new Map({
-      target: 'map',
-      layers: [this.tileLayer, this.vectorLayer],
-      view: this.view
+      this.map = new Map({
+        target: 'map',
+        layers: [this.tileLayer, this.vectorLayer],
+        view: this.view
+      });
     });
+    this.photos = this.restService.getRestaurantphotos(this.id);
   }
 }

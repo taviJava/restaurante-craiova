@@ -26,6 +26,7 @@
     "@types/openlayers": "^4.6.17",
     "angular-bootstrap-md": "^10.1.1",
     "angular-osm": "^1.2.2",
+    "angular-super-gallery": "^2.1.9",
     "bootstrap": "^4.6.0",
     "font-awesome": "^4.7.0",
     "jquery": "^3.5.1",

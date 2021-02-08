@@ -1,3 +1,5 @@
+import {Observable} from 'rxjs';
+
 export class Pizzeria {
   id: number;
   name: string;
@@ -8,4 +10,5 @@ export class Pizzeria {
   website: string;
   longitude: number;
   latidude: number;
+  photos: Observable<any>;
 }
