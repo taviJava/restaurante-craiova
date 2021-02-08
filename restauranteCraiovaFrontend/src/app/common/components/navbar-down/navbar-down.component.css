@@ -2,3 +2,9 @@
   font-family:  'Segoe UI' , fantasy;
   font-size:15px; font-weight: bold;
 }
+.container {
+  top: 0;
+  z-index: 100;
+  position: fixed;
+  width: 100%;
+}

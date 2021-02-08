@@ -13,3 +13,10 @@
   background-color: red;
   width: content-box;
 }
+.list-group{
+  width: 230px;
+  border-color: black;
+  margin: 1px auto;
+  top: 510px;
+
+}
