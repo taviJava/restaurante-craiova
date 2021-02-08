@@ -1,43 +1,20 @@
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/all.min.css" integrity="sha256-mmgLkCYLUQbXn0B1SRqzHar6dCnv9oZFPEC1g1cwlkk=" crossorigin="anonymous" />
 <div class="container">
-  <div class="row">
-    <div class="col-md-12">
-
-      <div class="card my-5">
-        <div class="card-body">
-          <table class="table table-bordered table-striped">
-            <thead class="thead-dark">
-            <tr>
-              <th class="align-middle" scope="col">#</th>
-              <th class="align-middle" scope="col">WeddingBand name</th>
-              <th class="align-middle" scope="col">
-                <div class="row d-flex align-items-center">
-                  <div class="col">
-                    Operations
-                  </div>
-                  <div class="col">
-                    <button (click)="add()" class="btn btn-outline-success "> Add wedding band </button>
-                  </div>
-                </div>
-              </th>
-            </tr>
-            </thead>
-            <tbody>
-            <tr *ngFor="let weddBand of wedding" >
-              <td>{{ (wedding.indexOf(weddBand)+1)}}</td>
-              <td>{{weddBand.name }}</td>
-
-              <td>
-                <div class="btn-group">
-                  <button  class="btn btn-outline-primary mx-1"> Edit </button>
-                  <button  class="btn btn-outline-danger"> Delete </button>
-
-                </div>
-              </td>
-            </tr>
-            </tbody>
-          </table>
-        </div>
+  <!-- start event block -->
+  <div class="row align-items-center event-block no-gutters margin-40px-bottom" *ngFor="let weddingBand of weddingBands">
+    <div class="col-lg-5 col-sm-12">
+      <div class="position-relative">
+        <img   *ngIf="weddingBand.photos | async as photos"     [src]="photos[0].url"   alt="">
+      </div>
+    </div>
+    <div class="col-lg-7 col-sm-12">
+      <div class="padding-60px-lr md-padding-50px-lr sm-padding-30px-all xs-padding-25px-all">
+        <p>{{weddingBand.description}}</p>
+        <p>{{weddingBand.name}}</p>
       </div>
     </div>
   </div>
+  <!-- end event block -->
+
+
 </div>

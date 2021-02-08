@@ -20,8 +20,8 @@ import {Test2Component} from './test/components/test2/test2.component';
 
 const routes: Routes = [{path: '', component: RestaurantListComponent},
   {path: 'addRestaurant', component: RestaurantAddComponent},
-  {path: 'addWedding', component: WeddingBandAddComponent},
-  {path: 'weddingList', component: WeddingBandListComponent},
+  {path: 'addWeddingBand', component: WeddingBandAddComponent},
+  {path: 'weddingBandList', component: WeddingBandListComponent},
   {path: 'pizzeriaAdd', component: PizzeriaAddComponent},
   {path: 'pizzeriaList', component: PizzeriaListComponent},
   {path: 'confectionerAdd', component: ConfectionerAddComponent},

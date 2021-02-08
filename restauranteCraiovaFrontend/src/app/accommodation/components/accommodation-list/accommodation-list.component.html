@@ -1,22 +1,20 @@
-<div class="row">
-  <div class="col-md-12 ">
-    <nav class="navbar navbar-light" style="background-color: lightsteelblue ">
-      <button (click)="add()" class="btn btn-secondary "> Add</button>
-    </nav>
-    <div class="row">
-      <div class="col-sm-4"
-           *ngFor="let accomodation of accomodationList">
-        <div class="card text-black-50  mb-5" style="background-color: lightsteelblue">
-          <div style="height: 200px">
-            <h5 class="card-title">{{accomodation.name}}</h5>
-            <h6 class="card-text">{{accomodation.description}}</h6>
-            <h6 class="card-text">{{accomodation.phone}}</h6>
-            <h6 class="card-text">{{accomodation.mail}}</h6>
-            <h6 class="card-text">{{accomodation.website}}</h6>
-            <h6 class="card-text">{{accomodation.address}}</h6>
-        </div>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/all.min.css" integrity="sha256-mmgLkCYLUQbXn0B1SRqzHar6dCnv9oZFPEC1g1cwlkk=" crossorigin="anonymous" />
+<div class="container">
+  <!-- start event block -->
+  <div class="row align-items-center event-block no-gutters margin-40px-bottom" *ngFor="let accommodation of accomodationList">
+    <div class="col-lg-5 col-sm-12">
+      <div class="position-relative">
+        <img   *ngIf="accommodation.photos | async as photos"     [src]="photos[0].url"   alt="">
+      </div>
+    </div>
+    <div class="col-lg-7 col-sm-12">
+      <div class="padding-60px-lr md-padding-50px-lr sm-padding-30px-all xs-padding-25px-all">
+        <p>{{accommodation.description}}</p>
+        <p>{{accommodation.name}}</p>
       </div>
     </div>
   </div>
-</div>
+  <!-- end event block -->
+
+
 </div>

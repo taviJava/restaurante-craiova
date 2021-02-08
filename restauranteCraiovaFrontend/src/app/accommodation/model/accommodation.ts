@@ -6,4 +6,5 @@ export class Accommodation {
   mail: string;
   phone: number;
   website: string;
+  photos: any;
 }
