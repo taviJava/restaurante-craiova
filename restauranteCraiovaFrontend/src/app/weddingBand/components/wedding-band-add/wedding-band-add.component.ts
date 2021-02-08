@@ -15,19 +15,24 @@ import {PhotoService} from '../../../photos/service/photo.service';
 })
 export class WeddingBandAddComponent implements OnInit {
   wedding: WeddingBand;
-  weddings: WeddingBand[];
   selectedPhotos: FileList;
-  progressInfos = [];
+  pozeLista: File[] = [];
   currentPhoto: File;
   progress = 0;
   message = '';
   photos: Observable<any>;
+  selectedFiles: FileList;
+  currentFile: File;
+  progressInfos = [];
+  // preview photo
+  fileData: File = null;
+  previewUrl: any = null;
+  previewsUrl: any[] = [];
 
   constructor(private weddingService: WeddingBandService,
               private route: ActivatedRoute,
               private router: Router,
-              private modalService: NgbModal,
-              private photoService: PhotoService) {
+             ) {
   }
 
   ngOnInit(): void {
@@ -36,68 +41,75 @@ export class WeddingBandAddComponent implements OnInit {
 
   // tslint:disable-next-line:typedef
   getAll() {
-    this.router.navigate(['weddingList']);
+    this.router.navigate(['weddingBandList']);
   }
 
   // tslint:disable-next-line:typedef
   onSubmit() {
     this.weddingService.save(this.wedding).subscribe(data => {
-      this.getWeddingBand();
+      this.uploadPhotos();
+      setTimeout(() => {
+          this.getAll();
+        },
+        5000);
     });
+  }
+  // tslint:disable-next-line:typedef
+  selectFile(event) {
+    this.selectedFiles = event.target.files;
+    this.fileProgress(event);
   }
 
   // tslint:disable-next-line:typedef
-  getWeddingBand() {
-    this.weddingService.findAll().subscribe(result => {
-      this.weddings = [];
-      this.weddings = result;
-      this.wedding = this.weddings[(this.weddings.length - 1)];
-      console.log(this.wedding);
-      this.uploadPhotos(this.wedding.id);
-    });
-    this.getAll();
+  fileProgress(fileInput: any) {
+    this.fileData = (fileInput.target.files[0] as File);
+    this.preview();
   }
 
-  selectPhoto(event): void {
-    this.progressInfos = [];
-
-    const files = event.target.files;
-    let isImage = true;
-
-    for (let i = 0; i < files.length; i++) {
-      if (files.item(i).type.match('image.*')) {
-        continue;
-      } else {
-        isImage = false;
-        alert('invalid format!');
-        break;
-      }
+  // tslint:disable-next-line:typedef
+  preview() {
+    // Show preview
+    const mimeType = this.fileData.type;
+    if (mimeType.match(/image\/*/) == null) {
+      return;
     }
 
-    if (isImage) {
-      this.selectedPhotos = event.target.files;
-    } else {
-      this.selectedPhotos = undefined;
-      event.srcElement.percentage = null;
-    }
+    const reader = new FileReader();
+    reader.readAsDataURL(this.fileData);
+    // tslint:disable-next-line:variable-name
+    reader.onload = (_event) => {
+      this.previewUrl = reader.result;
+    };
   }
-  uploadPhotos(id: number): void {
+
+  // tslint:disable-next-line:typedef
+  onItemSelect(item: any) {
+    console.log(item);
+  }
+
+  // tslint:disable-next-line:typedef
+  onSelectAll(items: any) {
+    console.log(items);
+  }
+
+
+  uploadPhotos(): void {
     this.message = '';
 
-    for (let i = 0; i < this.selectedPhotos.length; i++) {
-      this.upload(i, this.selectedPhotos[i], id);
+    for (let i = 0; i < this.selectedFiles.length; i++) {
+      this.upload2(i, this.selectedFiles[i]);
     }
   }
 
-  upload(idx, file, id: number): void {
+  upload2(idx, file): void {
     this.progressInfos[idx] = {value: 0, fileName: file.name};
 
-    this.photoService.upload(file, id).subscribe(
+    this.weddingService.upload(file).subscribe(
       event => {
         if (event.type === HttpEventType.UploadProgress) {
           this.progressInfos[idx].percentage = Math.round(100 * event.loaded / event.total);
         } else if (event instanceof HttpResponse) {
-          this.photos = this.photoService.getFiles();
+          this.photos = this.weddingService.getFiles();
         }
       },
       err => {
@@ -105,4 +117,5 @@ export class WeddingBandAddComponent implements OnInit {
         this.message = 'Could not upload the file:' + file.name;
       });
   }
+
 }

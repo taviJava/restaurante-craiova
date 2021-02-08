@@ -1,8 +1,8 @@
-import { Component, OnInit } from '@angular/core';
-import { WeddingBand } from '../../model/wedding-band';
-import { WeddingBandService } from '../../service/wedding-band.service';
-import { ActivatedRoute, Router } from '@angular/router';
-import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
+import {Component, OnInit} from '@angular/core';
+import {WeddingBand} from '../../model/wedding-band';
+import {WeddingBandService} from '../../service/wedding-band.service';
+import {ActivatedRoute, Router} from '@angular/router';
+import {NgbModal} from '@ng-bootstrap/ng-bootstrap';
 
 @Component({
   selector: 'app-wedding-band-list',
@@ -10,22 +10,31 @@ import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
   styleUrls: ['./wedding-band-list.component.css']
 })
 export class WeddingBandListComponent implements OnInit {
-  wedding: WeddingBand[];
+  weddingBands: WeddingBand[] = [];
+
   constructor(private weddingService: WeddingBandService,
               private route: ActivatedRoute,
               private router: Router,
-              private modalService: NgbModal) { }
+  ) {
+  }
 
   ngOnInit(): void {
-    this.wedding = [];
-    this.weddingService.findAll().subscribe(data => {
-      this.wedding = [];
-      this.wedding = data;
-    });
-  }
-  // tslint:disable-next-line:typedef
-  add(){
-    this.router.navigate(['addWedding']);
+    this.getWeddingBand();
   }
 
+  // tslint:disable-next-line:typedef
+  add() {
+    this.router.navigate(['addWeddingBand']);
+  }
+
+  // tslint:disable-next-line:typedef
+  getWeddingBand() {
+    this.weddingService.findAll().subscribe(data => {
+      this.weddingBands = [];
+      this.weddingBands = data;
+      for (const weddingBand of this.weddingBands) {
+        weddingBand.photos = this.weddingService.getWeddingBandphotos(weddingBand.id);
+      }
+    });
+  }
 }
