@@ -39,4 +39,8 @@ export class PizzeriaListComponent implements OnInit {
       }
     });
   }
+  // tslint:disable-next-line:typedef
+  viewPizzeria(id: number){
+    this.router.navigate(['pizzeria/' + id]);
+  }
 }
