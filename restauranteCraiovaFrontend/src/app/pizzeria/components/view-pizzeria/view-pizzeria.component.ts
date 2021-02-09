@@ -1,40 +1,28 @@
 import {Component, OnInit} from '@angular/core';
+import {ImgObj} from '../../../restaurants/model/img-obj';
+import {Observable} from 'rxjs';
+import {Pizzeria} from '../../model/pizzeria';
 import Map from 'ol/Map';
 import VectorSource from 'ol/source/Vector';
 import VectorLayer from 'ol/layer/Vector';
 import View from 'ol/View';
 import Feature from 'ol/Feature';
-import Point from 'ol/geom/Point';
 import XyzSource from 'ol/source/XYZ';
 import TileLayer from 'ol/layer/Tile';
 import Style from 'ol/style/Style';
 import Icon from 'ol/style/Icon';
-
-import {fromLonLat} from 'ol/proj';
-import {RestaurantService} from '../../service/restaurant.service';
-import {Restaurant} from '../../model/restaurant';
-import {ActivatedRoute, Router} from '@angular/router';
-import {Observable} from 'rxjs';
-import 'bootstrap/dist/css/bootstrap.min.css';
-import 'angular-super-gallery/dist/angular-super-gallery.css';
-import 'jquery';
-import 'angular';
-import 'bootstrap';
-import 'angular-animate';
-import 'angular-touch';
-import 'screenfull';
-import angularSuperGallery from 'angular-super-gallery';
-import * as angular from 'angular';
-import {ImgObj} from '../../model/img-obj';
-
-angular.module('app', [angularSuperGallery]);
+import {ActivatedRoute} from '@angular/router';
+import {PizzeriaService} from '../../service/pizzeria.service';
+import {geom, proj} from 'openlayers';
+import fromLonLat = proj.fromLonLat;
+import Point = geom.Point;
 
 @Component({
-  selector: 'app-view-restaurant',
-  templateUrl: './view-restaurant.component.html',
-  styleUrls: ['./view-restaurant.component.css']
+  selector: 'app-view-pizzeria',
+  templateUrl: './view-pizzeria.component.html',
+  styleUrls: ['./view-pizzeria.component.css']
 })
-export class ViewRestaurantComponent implements OnInit {
+export class ViewPizzeriaComponent implements OnInit {
   imageObject: ImgObj[] = [];
   latitude = 44.33405;
   longitude = 23.76040;
@@ -53,25 +41,24 @@ export class ViewRestaurantComponent implements OnInit {
       src: 'assets/map/mapSymbol.PNG',
     }),
   });
-  resturant: Restaurant = new Restaurant();
+  pizzeria: Pizzeria = new Pizzeria();
   id: number;
   photos: Observable<any>;
 
-  constructor(private restService: RestaurantService,
-              private  route: ActivatedRoute,
-              private router: Router) {
+  constructor(private restService: PizzeriaService,
+              private  route: ActivatedRoute) {
   }
 
   ngOnInit(): void {
     this.imageObject = [];
     this.id = this.route.snapshot.params.id;
-    this.resturant = new Restaurant();
+    this.pizzeria = new Pizzeria();
     this.restService.getById(this.id).subscribe(result => {
-      this.resturant = new Restaurant();
-      this.resturant = result;
-      console.log(this.resturant.website);
+      this.pizzeria = new Pizzeria();
+      this.pizzeria = result;
+      console.log(this.pizzeria.website);
       this.marker = new Feature({
-        geometry: new Point(fromLonLat([this.resturant.longitude, this.resturant.latidude]))
+        geometry: new Point(fromLonLat([this.pizzeria.longitude, this.pizzeria.latidude]))
       });
       this.marker.setStyle(this.iconStyle);
 
@@ -94,7 +81,7 @@ export class ViewRestaurantComponent implements OnInit {
 
       // View and map
       this.view = new View({
-        center: fromLonLat([this.resturant.longitude, this.resturant.latidude]),
+        center: fromLonLat([this.pizzeria.longitude, this.pizzeria.latidude]),
         zoom: 14
       });
 
@@ -104,7 +91,7 @@ export class ViewRestaurantComponent implements OnInit {
         view: this.view
       });
     });
-    this.photos = this.restService.getRestaurantphotos(this.id);
+    this.photos = this.restService.getPizzeriaphotos(this.id);
     this.photos.subscribe(result => {
       for (const photo of result) {
         const img: ImgObj = new ImgObj();

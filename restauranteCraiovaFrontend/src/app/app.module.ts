@@ -33,6 +33,7 @@ import {HttpClientModule} from '@angular/common/http';
 import {CommonModule} from '@angular/common';
 import { Test2Component } from './test/components/test2/test2.component';
 import {NgImageSliderModule} from 'ng-image-slider';
+import { ViewPizzeriaComponent } from './pizzeria/components/view-pizzeria/view-pizzeria.component';
 
 
 
@@ -57,7 +58,8 @@ import {NgImageSliderModule} from 'ng-image-slider';
     MenuLeftComponent,
     ViewRestaurantComponent,
     Test1Component,
-    Test2Component
+    Test2Component,
+    ViewPizzeriaComponent
   ],
   imports: [
     BrowserModule,
