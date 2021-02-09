@@ -11,7 +11,7 @@
 }
 .tlcls{
   background-color: red;
-  width: content-box;
+  /*width: content-box;*/
 }
 .list-group{
   width: 230px;
@@ -20,3 +20,53 @@
   top: 510px;
 
 }
+.card{
+  margin-bottom: 10px;
+}
+.titlu_modul {
+  position:relative;
+  top:0;
+  left:0;
+  right:0;
+  height:auto;
+  padding:10px;
+  font-weight:bold;
+  color:#fff;
+  background: #d53500;
+  background: -moz-linear-gradient(top, #d53500 1%, #bc3000 100%);
+  background: -webkit-linear-gradient(top, #d53500 1%,#bc3000 100%);
+  background: linear-gradient(to bottom, #d53500 1%,#bc3000 100%);
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#d53500', endColorstr='#bc3000',GradientType=0 );
+
+  border-radius:5px 5px 0 0;
+}
+.modul {
+  width: auto;
+  margin-bottom: 10px;
+  border: 1px solid #ddd;
+  box-shadow: 0 0 10px #eee;
+  background: #f3f3f3;
+  padding: 0px 0px 0px;
+  border-radius: 5px;
+  position: relative;
+  box-sizing: border-box;
+}
+.titlu{
+  position:relative;
+  top:0;
+  left:0;
+  right:0;
+  height:auto;
+  color:#fff;
+  padding:10px;
+  font-weight:bold;
+  background: #d53500;
+  background: -moz-linear-gradient(top, #d53500 1%, #bc3000 100%);
+  background: -webkit-linear-gradient(top, #d53500 1%,#bc3000 100%);
+  background: linear-gradient(to bottom, #d53500 1%,#bc3000 100%);
+  border-radius:5px 5px 0 0;
+}
+.card{
+  background: #f3f3f3;
+}
+
