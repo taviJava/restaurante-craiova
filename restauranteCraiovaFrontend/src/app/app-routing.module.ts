@@ -17,6 +17,7 @@ import {MenuLeftComponent} from './common/components/menu-left/menu-left.compone
 import {ViewRestaurantComponent} from './restaurants/components/view-restaurant/view-restaurant.component';
 import {Test1Component} from './test/components/test1/test1.component';
 import {Test2Component} from './test/components/test2/test2.component';
+import {SearchListComponent} from './search/components/search-list/search-list.component';
 
 const routes: Routes = [{path: '', component: RestaurantListComponent},
   {path: 'addRestaurant', component: RestaurantAddComponent},
@@ -34,6 +35,7 @@ const routes: Routes = [{path: '', component: RestaurantListComponent},
   {path: 'restaurant/:id', component: ViewRestaurantComponent},
   {path: 'test', component: Test1Component},
   {path: 'test2', component: Test2Component},
+  {path: 'search/:key', component: SearchListComponent},
 
  // {path: 'photos', component: PhotoComponent}
 ];

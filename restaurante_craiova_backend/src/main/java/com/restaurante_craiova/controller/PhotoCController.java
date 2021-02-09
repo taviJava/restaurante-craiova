@@ -3,10 +3,7 @@ package com.restaurante_craiova.controller;
 import com.restaurante_craiova.persistance.files.ResponseFile;
 import com.restaurante_craiova.persistance.files.ResponseMessage;
 import com.restaurante_craiova.persistance.model.*;
-import com.restaurante_craiova.repository.AccommodationRepository;
-import com.restaurante_craiova.repository.ConfectionerRepository;
-import com.restaurante_craiova.repository.PizzeriaRepository;
-import com.restaurante_craiova.repository.WeddingBandRepository;
+import com.restaurante_craiova.repository.*;
 import com.restaurante_craiova.service.PhotoCService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpHeaders;
@@ -35,7 +32,8 @@ public class PhotoCController {
     private AccommodationRepository accommodationRepository;
     @Autowired
     private WeddingBandRepository weddingBandRepository;
-
+    @Autowired
+    private LocalRepository localRepository;
     @PostMapping("/photos/weddingBand")
     public ResponseEntity<ResponseMessage> uploadFileWeddingBand(@RequestParam("photo") MultipartFile file) {
         String message;
@@ -199,6 +197,29 @@ public class PhotoCController {
                     String fileDownloadUri = ServletUriComponentsBuilder
                             .fromCurrentContextPath()
                             .path("/photos/weddingBand/")
+                            .path(dbFile.getId())
+                            .toUriString();
+                    return new ResponseFile(
+                            dbFile.getName(),
+                            fileDownloadUri,
+                            dbFile.getType(),
+                            dbFile.getData().length);
+                }).collect(Collectors.toList());
+
+            }
+        }
+        return ResponseEntity.status(HttpStatus.OK).body(files);
+    }
+    @GetMapping("/search/photos/{id}")
+    public ResponseEntity<List<ResponseFile>> getClientFiles(@PathVariable(name = "id") Long id) {
+        List<ResponseFile> files = new ArrayList<>();
+        Optional<ClientModel> clientModelOptional = localRepository.findById(id);
+        if (clientModelOptional.isPresent()) {
+            if (clientModelOptional.get().getPhotos() != null) {
+                files = photoCService.getAllWeddingBandphotos(id).map(dbFile -> {
+                    String fileDownloadUri = ServletUriComponentsBuilder
+                            .fromCurrentContextPath()
+                            .path("/photos/")
                             .path(dbFile.getId())
                             .toUriString();
                     return new ResponseFile(

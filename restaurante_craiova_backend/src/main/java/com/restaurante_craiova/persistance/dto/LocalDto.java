@@ -1,6 +1,6 @@
 package com.restaurante_craiova.persistance.dto;
 
-public abstract class LocalDto {
+public class LocalDto {
     private long id;
     private String name;
     private String address;

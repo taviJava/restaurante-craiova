@@ -6,7 +6,7 @@ import javax.persistence.*;
 import java.util.List;
 
 @Entity
-public abstract class ClientModel {
+public class ClientModel {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private long id;
