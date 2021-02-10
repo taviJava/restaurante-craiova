@@ -216,7 +216,7 @@ public class PhotoCController {
         Optional<ClientModel> clientModelOptional = localRepository.findById(id);
         if (clientModelOptional.isPresent()) {
             if (clientModelOptional.get().getPhotos() != null) {
-                files = photoCService.getAllWeddingBandphotos(id).map(dbFile -> {
+                files = photoCService.getClient(id).map(dbFile -> {
                     String fileDownloadUri = ServletUriComponentsBuilder
                             .fromCurrentContextPath()
                             .path("/photos/")

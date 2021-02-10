@@ -21,6 +21,7 @@ import {ViewPizzeriaComponent} from './pizzeria/components/view-pizzeria/view-pi
 import {ViewConfectionerComponent} from './confectioner/components/view-confectioner/view-confectioner.component';
 import {ViewAccommodationComponent} from './accommodation/components/view-accommodation/view-accommodation.component';
 import {ViewWeddingBandComponent} from './weddingBand/components/view-wedding-band/view-wedding-band.component';
+import {SearchListComponent} from './search/components/search-list/search-list.component';
 
 const routes: Routes = [{path: '', component: RestaurantListComponent},
   {path: 'addRestaurant', component: RestaurantAddComponent},
@@ -42,6 +43,7 @@ const routes: Routes = [{path: '', component: RestaurantListComponent},
   {path: 'confectioner/:id', component: ViewConfectionerComponent},
   {path: 'accommodation/:id', component: ViewAccommodationComponent},
   {path: 'weddingBand/:id', component: ViewWeddingBandComponent},
+  {path: 'search/:key', component: SearchListComponent},
 ];
 
 @NgModule({

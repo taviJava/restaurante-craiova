@@ -37,6 +37,8 @@ import { ViewPizzeriaComponent } from './pizzeria/components/view-pizzeria/view-
 import { ViewConfectionerComponent } from './confectioner/components/view-confectioner/view-confectioner.component';
 import { ViewAccommodationComponent } from './accommodation/components/view-accommodation/view-accommodation.component';
 import {ViewWeddingBandComponent} from './weddingBand/components/view-wedding-band/view-wedding-band.component';
+import {SearchListComponent} from './search/components/search-list/search-list.component';
+import {RouterModule} from '@angular/router';
 
 
 
@@ -65,7 +67,8 @@ import {ViewWeddingBandComponent} from './weddingBand/components/view-wedding-ba
     ViewPizzeriaComponent,
     ViewConfectionerComponent,
     ViewAccommodationComponent,
-    ViewWeddingBandComponent
+    ViewWeddingBandComponent,
+    SearchListComponent
   ],
   imports: [
     BrowserModule,

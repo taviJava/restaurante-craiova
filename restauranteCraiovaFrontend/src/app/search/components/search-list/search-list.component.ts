@@ -33,4 +33,9 @@ export class SearchListComponent implements OnInit {
       }
     });
   }
+  // tslint:disable-next-line:typedef
+  viewRestaurant(id: number){
+    this.router.navigate(['restaurant/' + id]);
+  }
+
 }
