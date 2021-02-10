@@ -1,0 +1,29 @@
+<div class="container my-2">
+  <div class="card my-2">
+    <div class="card-body">
+      <div class="row  margin-10px-bottom" >
+        <div class="col-lg-5 col-sm-12">
+          <div class="position-relative">
+            <img   *ngIf="photos | async as photos"     [src]="photos[0].url"   alt="">
+          </div>
+        </div>
+        <div class="col-lg-7 col-sm-12">
+          <div class="ml-5">
+            <p><strong>Adresa: </strong>{{weddingBand.address}}</p>
+            <p><strong>Telefon: </strong>{{weddingBand.phone}}</p>
+            <p><a href="{{weddingBand.website}}">{{weddingBand.website}}</a></p>
+          </div>
+        </div>
+        <div class="col-lg-12 col-sm-12">
+          <p>{{weddingBand.description}}</p>
+        </div>
+      </div>
+    </div>
+    <div class="card my-2">
+      <div class="card-body">
+        <ng-image-slider *ngIf="photos | async as photos"  [images]="imageObject" #nav></ng-image-slider>
+      </div>
+    </div>
+
+  </div>
+</div>

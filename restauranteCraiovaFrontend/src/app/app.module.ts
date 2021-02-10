@@ -34,6 +34,9 @@ import {CommonModule} from '@angular/common';
 import { Test2Component } from './test/components/test2/test2.component';
 import {NgImageSliderModule} from 'ng-image-slider';
 import { ViewPizzeriaComponent } from './pizzeria/components/view-pizzeria/view-pizzeria.component';
+import { ViewConfectionerComponent } from './confectioner/components/view-confectioner/view-confectioner.component';
+import { ViewAccommodationComponent } from './accommodation/components/view-accommodation/view-accommodation.component';
+import {ViewWeddingBandComponent} from './weddingBand/components/view-wedding-band/view-wedding-band.component';
 
 
 
@@ -59,7 +62,10 @@ import { ViewPizzeriaComponent } from './pizzeria/components/view-pizzeria/view-
     ViewRestaurantComponent,
     Test1Component,
     Test2Component,
-    ViewPizzeriaComponent
+    ViewPizzeriaComponent,
+    ViewConfectionerComponent,
+    ViewAccommodationComponent,
+    ViewWeddingBandComponent
   ],
   imports: [
     BrowserModule,

@@ -36,8 +36,8 @@ angular.module('app', [angularSuperGallery]);
 })
 export class ViewRestaurantComponent implements OnInit {
   imageObject: ImgObj[] = [];
-  latitude = 44.33405;
-  longitude = 23.76040;
+  latitude ;
+  longitude ;
   map: Map;
   vectorSource: VectorSource;
   vectorLayer: VectorLayer;

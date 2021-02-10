@@ -38,4 +38,8 @@ export class ConfectionerListComponent implements OnInit {
   add() {
     this.router.navigate(['confectionerAdd']);
   }
+  // tslint:disable-next-line:typedef
+  viewConfectioner(id: number){
+    this.router.navigate(['confectioner/' + id]);
+  }
 }

@@ -37,4 +37,9 @@ export class WeddingBandListComponent implements OnInit {
       }
     });
   }
+
+  // tslint:disable-next-line:typedef
+  viewWeddingBand(id: number) {
+    this.router.navigate(['weddingBand/' + id]);
+  }
 }

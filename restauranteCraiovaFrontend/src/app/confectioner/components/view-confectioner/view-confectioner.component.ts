@@ -1,4 +1,7 @@
 import {Component, OnInit} from '@angular/core';
+import {ImgObj} from '../../../restaurants/model/img-obj';
+import {Observable} from 'rxjs';
+import {Confectioner} from '../../model/confectioner';
 import Map from 'ol/Map';
 import VectorSource from 'ol/source/Vector';
 import VectorLayer from 'ol/layer/Vector';
@@ -9,10 +12,8 @@ import XyzSource from 'ol/source/XYZ';
 import TileLayer from 'ol/layer/Tile';
 import Style from 'ol/style/Style';
 import Icon from 'ol/style/Icon';
-
 import {fromLonLat} from 'ol/proj';
 import {ActivatedRoute, Router} from '@angular/router';
-import {Observable} from 'rxjs';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import 'angular-super-gallery/dist/angular-super-gallery.css';
 import 'jquery';
@@ -21,18 +22,17 @@ import 'bootstrap';
 import 'angular-animate';
 import 'angular-touch';
 import 'screenfull';
-import {Pizzeria} from '../../model/pizzeria';
-import {PizzeriaService} from '../../service/pizzeria.service';
-import {ImgObj} from '../../../restaurants/model/img-obj';
+import {ConfectionerService} from '../../service/confectioner.service';
+
 
 @Component({
-  selector: 'app-view-pizzeria',
-  templateUrl: './view-pizzeria.component.html',
-  styleUrls: ['./view-pizzeria.component.css']
+  selector: 'app-view-confectioner',
+  templateUrl: './view-confectioner.component.html',
+  styleUrls: ['./view-confectioner.component.css']
 })
-export class ViewPizzeriaComponent implements OnInit {
+export class ViewConfectionerComponent implements OnInit {
   imageObject: ImgObj[] = [];
-  latitude;
+  latitude ;
   longitude ;
   map: Map;
   vectorSource: VectorSource;
@@ -49,24 +49,24 @@ export class ViewPizzeriaComponent implements OnInit {
       src: 'assets/map/mapSymbol.PNG',
     }),
   });
-  pizzeria: Pizzeria = new Pizzeria();
+  confectioner: Confectioner = new Confectioner();
   id: number;
   photos: Observable<any>;
 
-  constructor(private restService: PizzeriaService,
+  constructor(private restService: ConfectionerService,
               private  route: ActivatedRoute) {
   }
 
   ngOnInit(): void {
     this.imageObject = [];
     this.id = this.route.snapshot.params.id;
-    this.pizzeria = new Pizzeria();
+    this.confectioner = new Confectioner();
     this.restService.getById(this.id).subscribe(result => {
-      this.pizzeria = new Pizzeria();
-      this.pizzeria = result;
-      console.log(this.pizzeria.website);
+      this.confectioner = new Confectioner();
+      this.confectioner = result;
+      console.log(this.confectioner.website);
       this.marker = new Feature({
-        geometry: new Point(fromLonLat([this.pizzeria.longitude, this.pizzeria.latidude]))
+        geometry: new Point(fromLonLat([this.confectioner.longitude, this.confectioner.latidude]))
       });
       this.marker.setStyle(this.iconStyle);
 
@@ -89,8 +89,8 @@ export class ViewPizzeriaComponent implements OnInit {
 
       // View and map
       this.view = new View({
-        center: fromLonLat([this.pizzeria.longitude, this.pizzeria.latidude]),
-        zoom: 10
+        center: fromLonLat([this.confectioner.longitude, this.confectioner.latidude]),
+        zoom: 14
       });
 
       this.map = new Map({
@@ -99,7 +99,7 @@ export class ViewPizzeriaComponent implements OnInit {
         view: this.view
       });
     });
-    this.photos = this.restService.getPizzeriaphotos(this.id);
+    this.photos = this.restService.getConfectionerphotos(this.id);
     this.photos.subscribe(result => {
       for (const photo of result) {
         const img: ImgObj = new ImgObj();
@@ -111,4 +111,5 @@ export class ViewPizzeriaComponent implements OnInit {
       }
     });
   }
+
 }

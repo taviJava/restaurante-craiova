@@ -7,4 +7,6 @@ export class Accommodation {
   phone: number;
   website: string;
   photos: any;
+  longitude: number;
+  latidude: number;
 }

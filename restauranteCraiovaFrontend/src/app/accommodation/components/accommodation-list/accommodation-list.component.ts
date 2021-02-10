@@ -38,4 +38,9 @@ export class AccommodationListComponent implements OnInit {
   add() {
     this.router.navigate(['accomodationAdd']);
   }
+
+  // tslint:disable-next-line:typedef
+  viewAccommodation(id: number) {
+    this.router.navigate(['accommodation/' + id]);
+  }
 }
