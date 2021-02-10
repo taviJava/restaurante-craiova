@@ -27,6 +27,9 @@ public class PhotoCService {
     @Autowired
     private WeddingBandRepository weddingBandRepository;
 
+    @Autowired
+    private LocalRepository localRepository;
+
     public PhotoC storeWeddingBand(MultipartFile file) throws IOException {
         List<WeddingBandModel> weddingBandModelList = weddingBandRepository.findAll();
         WeddingBandModel weddingBandModel = weddingBandModelList.get(weddingBandModelList.size() - 1);
@@ -98,7 +101,14 @@ public class PhotoCService {
         }
         return pizzeriaModel.getPhotos().stream();
     }
-
+    public Stream<PhotoC> getClient(long id) {
+        ClientModel clientModel = new ClientModel();
+        Optional<ClientModel> pizzeriaModelOptional = localRepository.findById(id);
+        if (pizzeriaModelOptional.isPresent()) {
+            clientModel = pizzeriaModelOptional.get();
+        }
+        return clientModel.getPhotos().stream();
+    }
     public Stream<PhotoC> getAllConfectionerphotos(long id) {
         ConfectionerModel confectionerModel = new ConfectionerModel();
         Optional<ConfectionerModel> confectionerModelOptional = confectionerRepository.findById(id);
