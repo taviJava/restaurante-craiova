@@ -10,6 +10,8 @@ public class MessageModel {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private long id;
     private String name;
+    private String mail;
+    private String phone;
     private String textMessage;
 
 
@@ -36,5 +38,21 @@ public class MessageModel {
 
     public void setTextMessage(String textMessage) {
         this.textMessage = textMessage;
+    }
+
+    public String getMail() {
+        return mail;
+    }
+
+    public void setMail(String mail) {
+        this.mail = mail;
+    }
+
+    public String getPhone() {
+        return phone;
+    }
+
+    public void setPhone(String phone) {
+        this.phone = phone;
     }
 }

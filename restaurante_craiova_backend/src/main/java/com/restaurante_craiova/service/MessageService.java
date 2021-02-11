@@ -15,6 +15,21 @@ import java.util.Optional;
 public class MessageService {
     @Autowired
     private MessageRepository messageRepository;
+    @Autowired
+    private SendEmailService sendEmailService;
+
+    public String sendMessage(MessageDto messageDto) {
+
+        int messagesNumberBefore = messageRepository.findAll().size();
+        System.out.println(messagesNumberBefore);
+        save(messageDto);
+        int messageNumberAfter = messageRepository.findAll().size();
+        System.out.println(messageNumberAfter);
+        if (messageNumberAfter > messagesNumberBefore) {
+            sendEmailService.sendEmail(messageDto.getId(), messageDto.getName(), messageDto.getTextMessage(), messageDto.getMail(), messageDto.getPhone());
+            return "Mesajul a fost trimis cu succes! \n Mulțumim!";
+        } else return "Ne pare rau, mesajul nu s-a transmis";
+    }
 
     public void save(MessageDto messageDto) {
         MessageModel messageModel = new MessageModel();
@@ -48,7 +63,8 @@ public class MessageService {
             messageRepository.save(getModel(messageModel, messageDto));
         }
     }
-    public void delete(long id){
+
+    public void delete(long id) {
         messageRepository.deleteById(id);
     }
 
@@ -64,4 +80,5 @@ public class MessageService {
         messageDto.setTextMessage(messageModel.getTextMessage());
         return messageDto;
     }
+
 }
