@@ -29,7 +29,7 @@ import {NavbarDownComponent} from './common/components/navbar-down/navbar-down.c
 import { MenuLeftComponent } from './common/components/menu-left/menu-left.component';
 import {ViewRestaurantComponent} from './restaurants/components/view-restaurant/view-restaurant.component';
 import { Test1Component } from './test/components/test1/test1.component';
-import {HttpClientModule} from '@angular/common/http';
+import {HTTP_INTERCEPTORS, HttpClientModule} from '@angular/common/http';
 import {CommonModule} from '@angular/common';
 import { Test2Component } from './test/components/test2/test2.component';
 import {NgImageSliderModule} from 'ng-image-slider';
@@ -39,6 +39,8 @@ import { ViewAccommodationComponent } from './accommodation/components/view-acco
 import {ViewWeddingBandComponent} from './weddingBand/components/view-wedding-band/view-wedding-band.component';
 import {SearchListComponent} from './search/components/search-list/search-list.component';
 import {RouterModule} from '@angular/router';
+import { HttpInterceptorService } from './user/service/http-interceptor.service';
+import { UserLoginComponent } from './user/components/user-login/user-login.component';
 
 
 
@@ -68,7 +70,8 @@ import {RouterModule} from '@angular/router';
     ViewConfectionerComponent,
     ViewAccommodationComponent,
     ViewWeddingBandComponent,
-    SearchListComponent
+    SearchListComponent,
+    UserLoginComponent
   ],
   imports: [
     BrowserModule,
@@ -85,7 +88,11 @@ import {RouterModule} from '@angular/router';
     CarouselModule, WavesModule,
     CommonModule, NgImageSliderModule,
   ],
-  providers: [],
+  providers: [  {
+    provide: HTTP_INTERCEPTORS,
+    useClass: HttpInterceptorService,
+    multi: true
+  }],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

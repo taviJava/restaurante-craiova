@@ -18,7 +18,7 @@ public class MessageService {
     @Autowired
     private SendEmailService sendEmailService;
 
-    public String sendMessage(MessageDto messageDto) {
+    public String sendMessage(MessageDto messageDto,Long localid) {
 
         int messagesNumberBefore = messageRepository.findAll().size();
         System.out.println(messagesNumberBefore);
@@ -26,7 +26,7 @@ public class MessageService {
         int messageNumberAfter = messageRepository.findAll().size();
         System.out.println(messageNumberAfter);
         if (messageNumberAfter > messagesNumberBefore) {
-            sendEmailService.sendEmail(messageDto.getId(), messageDto.getName(), messageDto.getTextMessage(), messageDto.getMail(), messageDto.getPhone());
+            sendEmailService.sendEmail(localid, messageDto.getName(), messageDto.getTextMessage(), messageDto.getMail(), messageDto.getPhone());
             return "Mesajul a fost trimis cu succes! \n Mulțumim!";
         } else return "Ne pare rau, mesajul nu s-a transmis";
     }

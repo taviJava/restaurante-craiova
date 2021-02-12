@@ -13,7 +13,7 @@ import {Observable} from 'rxjs';
 export class RestaurantListComponent implements OnInit {
   restaurants: Restaurant[] = [];
   photos: Observable<any>;
-
+  p = 0;
   constructor(private restaurantService: RestaurantService,
               private route: ActivatedRoute,
               private router: Router,
@@ -27,9 +27,9 @@ export class RestaurantListComponent implements OnInit {
 
   // tslint:disable-next-line:typedef
   getAll() {
-    this.restaurantService.findAll().subscribe(data => {
+    this.restaurantService.findAll().subscribe(result => {
       this.restaurants = [];
-      this.restaurants = data;
+      this.restaurants = result;
       for (const rest of this.restaurants) {
         rest.photos = this.restaurantService.getRestaurantphotos(rest.id);
       }
@@ -40,8 +40,9 @@ export class RestaurantListComponent implements OnInit {
   add() {
     this.router.navigate(['addRestaurant']);
   }
+
   // tslint:disable-next-line:typedef
-  viewRestaurant(id: number){
+  viewRestaurant(id: number) {
     this.router.navigate(['restaurant/' + id]);
   }
 }

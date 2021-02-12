@@ -4,6 +4,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+
 @Entity
 public class MessageModel {
     @Id
@@ -13,8 +14,6 @@ public class MessageModel {
     private String mail;
     private String phone;
     private String textMessage;
-
-
 
     public long getId() {
         return id;
